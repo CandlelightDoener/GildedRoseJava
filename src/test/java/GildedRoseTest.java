@@ -19,8 +19,8 @@ public class GildedRoseTest {
 	}
 
 	@Property
-	public void qualityIsNeverNegative(@InRange(minInt=-10, maxInt=10) int sellIn, @InRange(minInt=0, maxInt= 10) int quality){
-		Item item = new Item("hhdwgdzgw", sellIn, quality);
+	public void qualityIsNeverNegative(String randomItemName, @InRange(minInt=-10, maxInt=10) int sellIn, @InRange(minInt=0, maxInt= 10) int quality){
+		Item item = new Item(randomItemName, sellIn, quality);
 		GildedRose.with(item).updateQuality();
 		assertThat(item.getQuality(), not(lessThan(0)));
 	}
